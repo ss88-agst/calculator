@@ -1,17 +1,18 @@
 * {
   box-sizing: border-box;
 }
-
+/*
 html,
 body {
   padding: 0;
   margin: 0;
-}
+} */
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vw;
 }
 
 .calculator {
@@ -22,7 +23,120 @@ body {
 .input {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1px;
 }
 
 /* figure out a way to align the buttons on the grid like a real calculator */
+
+button[type="button"] {
+}
+
+#one {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+#two {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+#three {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+#four {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#five {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+#six {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+#seven {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#eight {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#nine {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* #one #four #seven {
+  grid-column: 1;
+}
+
+#two #five #eight {
+  grid-column: 2;
+}
+
+#three #six #nine {
+  grid-column: 3;
+}
+
+#one #two #three {
+  grid-row: 4;
+}
+
+#four #five #six {
+  grid-row: 3;
+}
+
+#seven #eight #nine {
+  grid-row: 2;
+} */
+
+#zero {
+  grid-column-start: 2;
+  grid-row-start: 5;
+}
+
+#add {
+  grid-column-start: 4;
+  grid-row-start: 4;
+}
+
+#subtract {
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
+
+#multiply {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+#divide {
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+
+#decimal {
+  grid-column-start: 3;
+  grid-row-start: 5;
+}
+
+#plus-minus {
+  grid-column-start: 1;
+  grid-row-start: 5;
+}
+
+#equals {
+  grid-column-start: 4;
+  grid-row-start: 5;
+}

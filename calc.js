@@ -16,6 +16,11 @@ const divide = (a, b) => {
   return a / b;
 };
 
+// Might add this to the calculator in order to add another functionality
+const power = (a, b) => {
+  return Math.pow(a, b);
+};
+
 const operate = (a, b, operator) => {
   switch (operator) {
     case operator == "+":
@@ -32,3 +37,13 @@ const operate = (a, b, operator) => {
       break;
   }
 };
+
+const doStuff = () => {
+  const buttons = document.querySelectorAll("button");
+
+  for (let button of buttons) {
+    console.log(button.value);
+  }
+};
+
+doStuff();
