@@ -12,10 +12,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
 
-.calculator {
-  display: grid;
-}
+/* figure out a way to align the buttons on the grid like a real calculator */
