@@ -1,18 +1,18 @@
 * {
   box-sizing: border-box;
 }
-/*
+
 html,
 body {
   padding: 0;
   margin: 0;
-} */
+}
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vw;
+  height: 100vh;
 }
 
 .calculator {
@@ -27,9 +27,9 @@ body {
   gap: 1px;
 }
 
-/* figure out a way to align the buttons on the grid like a real calculator */
-
-button[type="button"] {
+button {
+  padding: 20% 30px;
+  border: 0;
 }
 
 #one {
@@ -76,30 +76,6 @@ button[type="button"] {
   grid-column: 3;
   grid-row: 2;
 }
-
-/* #one #four #seven {
-  grid-column: 1;
-}
-
-#two #five #eight {
-  grid-column: 2;
-}
-
-#three #six #nine {
-  grid-column: 3;
-}
-
-#one #two #three {
-  grid-row: 4;
-}
-
-#four #five #six {
-  grid-row: 3;
-}
-
-#seven #eight #nine {
-  grid-row: 2;
-} */
 
 #zero {
   grid-column-start: 2;

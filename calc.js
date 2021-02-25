@@ -38,12 +38,8 @@ const operate = (a, b, operator) => {
   }
 };
 
-const doStuff = () => {
-  const buttons = document.querySelectorAll("button");
-
-  for (let button of buttons) {
-    console.log(button.value);
-  }
-};
-
-doStuff();
+const buttons = document.querySelectorAll(".number").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    console.log(event.target);
+  });
+});

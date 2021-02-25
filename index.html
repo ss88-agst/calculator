@@ -2,33 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/calculator.ico" type="image/x-icon" />
     <meta
       name="description"
       content="A simple calculator application made with HTML, CSS, and pure JavaScript"
     />
     <title>Calculator</title>
     <link rel="stylesheet" href="/styles/style.css" />
-    <script
-      type="text/javascript"
-      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    ></script>
     <script link rel="calc.js" type="text/javascript" defer></script>
   </head>
   <body>
-    <!-- <math xmlns="http://www.w3.org/1998/Math/MathML"></math> -->
     <div class="container">
       <div class="calculator">
         <div class="display">what's poppin'</div>
         <div class="input">
           <button type="button" id="delete" class="delete">&#9003;</button>
           <button type="button" id="all-clear" value="AC">AC</button>
-          <button type="button" id="power" value="^">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <msup><mi>x</mi><mn>y</mn></msup>
-            </math>
-          </button>
+          <button type="button" id="power" value="^">x^y</button>
 
           <button type="button" id="seven" class="number" value="7">7</button>
           <button type="button" id="eight" class="number" value="8">8</button>
@@ -57,7 +48,7 @@
           <button type="button" id="decimal" class="operator" value=".">
             .
           </button>
-          <button type="button" id="plus-minus" class="operator" value="+/-">
+          <button type="button" id="plus-minus" class="operator" value="pm">
             &PlusMinus;
           </button>
           <button type="button" id="equals" class="operator" value="=">
