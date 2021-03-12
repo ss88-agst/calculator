@@ -40,20 +40,14 @@ const operate = (a, b, operator) => {
   }
 };
 
-const buttons = Array.from(document.querySelectorAll("button"));
-buttons.forEach((button) => {
+const numbers = Array.from(document.querySelectorAll("button.number"));
+numbers.forEach((button) => {
   button.addEventListener("click", (event) => {
-    let type = event.target.classList[0];
     let value = event.target.value;
     prevValue = currentValue;
 
-    switch (type) {
-      case type == "number":
-        currentValue = prevValue + value;
-        display.textContent = currentValue;
-        break;
-      default:
-        break;
-    }
+    if (prevValue === "0") prevValue = "";
+    currentValue = prevValue + value;
+    display.textContent = currentValue;
   });
 });
