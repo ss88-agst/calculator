@@ -43,9 +43,17 @@ const operate = (a, b, operator) => {
 const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    // console.log(event.target.value);
+    let type = event.target.classList[0];
+    let value = event.target.value;
     prevValue = currentValue;
-    currentValue = event.target.value;
-    display.textContent = currentValue;
+
+    switch (type) {
+      case type == "number":
+        currentValue = prevValue + value;
+        display.textContent = currentValue;
+        break;
+      default:
+        break;
+    }
   });
 });
