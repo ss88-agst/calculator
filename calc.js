@@ -41,6 +41,7 @@ const operate = (a, b, operator) => {
 };
 
 const numbers = Array.from(document.querySelectorAll("button.number"));
+const allClear = document.querySelector("button#all-clear");
 numbers.forEach((button) => {
   button.addEventListener("click", (event) => {
     let value = event.target.value;
@@ -50,4 +51,10 @@ numbers.forEach((button) => {
     currentValue = prevValue + value;
     display.textContent = currentValue;
   });
+});
+
+allClear.addEventListener("click", (_) => {
+  prevValue = "";
+  currentValue = "";
+  display.innerText = "0";
 });
