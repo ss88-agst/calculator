@@ -1,5 +1,6 @@
 let prevValue = "";
 let currentValue = "";
+const display = document.querySelector(".display");
 
 const add = (a, b) => {
   return a + b;
@@ -42,8 +43,9 @@ const operate = (a, b, operator) => {
 const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     prevValue = currentValue;
     currentValue = event.target.value;
+    display.textContent = currentValue;
   });
 });
