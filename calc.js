@@ -1,4 +1,5 @@
-// @ts-nocheck
+let prevValue = "";
+let currentValue = "";
 
 const add = (a, b) => {
   return a + b;
@@ -38,8 +39,11 @@ const operate = (a, b, operator) => {
   }
 };
 
-const buttons = document.querySelectorAll(".number").forEach((button) => {
+const buttons = Array.from(document.querySelectorAll("button"));
+buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    console.log(event.target);
+    console.log(event.target.value);
+    prevValue = currentValue;
+    currentValue = event.target.value;
   });
 });
