@@ -25,6 +25,10 @@ body {
   background-color: #525252;
 }
 
+.display {
+  padding-top: 10px;
+}
+
 .preview {
   font-size: 18px;
   width: auto;
