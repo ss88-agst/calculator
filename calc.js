@@ -51,8 +51,8 @@ const power = (a, b) => Math.pow(a, b);
  * Takes in two operands and an operator and applies that operation and
  * returns the result
  *
- * @param {string} a the first operand
- * @param {string} b the second operand
+ * @param {number} a the first operand
+ * @param {number} b the second operand
  * @param {string} operator the operator to be used in the operation
  * @returns the result of the operation
  */
@@ -66,6 +66,8 @@ const operate = (a, b, operator) => {
       return multiply(a, b);
     case "/":
       return divide(a, b);
+    case "^":
+      return power(a, b);
   }
 };
 
@@ -102,6 +104,14 @@ plusMinusButton.addEventListener("click", (_) => {
 
 operators.forEach((op) => {
   op.addEventListener("click", (event) => {
-    if (operator === "") operator = event.target.value;
+    if (operator !== "") {
+      let firstOperand = parseFloat(prevValue);
+      let secondOperand = parseFloat(currentValue);
+
+      prevValue = currentValue;
+      currentValue = operate(firstOperand, secondOperand, operator);
+      operator = event.target.value;
+      display.innerText = currentValue;
+    }
   });
 });
