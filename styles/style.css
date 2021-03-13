@@ -1,3 +1,5 @@
+/* TODO: add button effects */
+
 * {
   box-sizing: border-box;
 }
@@ -28,7 +30,7 @@ body {
 }
 
 .display {
-  padding: 10px 10px 0px;
+  padding: 10px;
   background-color: dimgrey;
   border-radius: 25px;
 }
@@ -44,9 +46,9 @@ body {
 .results {
   color: #fff;
   width: auto;
-  height: 75px;
+  height: 55px;
   text-align: right;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .input {

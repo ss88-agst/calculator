@@ -1,5 +1,13 @@
 const results = document.querySelector(".results");
 const preview = document.querySelector(".preview");
+const CURRENT_VALUE_LIMIT = 20;
+
+const numberButtons = document.querySelectorAll("button.number");
+const deleteButton = document.querySelector("button#delete");
+const allClearButton = document.querySelector("button#all-clear");
+const plusMinusButton = document.querySelector("button#plus-minus");
+const operatorButtons = document.querySelectorAll("button.operator");
+
 let prevValue = "";
 let currentValue = "";
 let operator = "";
@@ -7,7 +15,7 @@ let result = 0;
 let recentOperation = false;
 
 /**
- * Adds two numbers together
+ * Adds two numberButtons together
  *
  * @param {number} a first operand
  * @param {number} b second operand
@@ -16,7 +24,7 @@ let recentOperation = false;
 const add = (a, b) => a + b;
 
 /**
- * Subtracts two numbers
+ * Subtracts two numberButtons
  *
  * @param {number} a first operand
  * @param {number} b second operand
@@ -25,7 +33,7 @@ const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 
 /**
- * Multiplies two numbers together
+ * Multiplies two numberButtons together
  *
  * @param {number} a first operand
  * @param {number} b second operand
@@ -34,7 +42,7 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 
 /**
- * Divides two numbers together
+ * Divides two numberButtons together
  *
  * @param {number} a first operand
  * @param {number} b second operand
@@ -85,15 +93,11 @@ const resetState = () => {
   operator = "";
   result = 0;
   recentOperation = false;
+
+  numberButtons.forEach((button) => button.removeAttribute("disabled"));
 };
 
-const numbers = Array.from(document.querySelectorAll("button.number"));
-const deleteButton = document.querySelector("button#delete");
-const allClear = document.querySelector("button#all-clear");
-const plusMinusButton = document.querySelector("button#plus-minus");
-const operators = Array.from(document.querySelectorAll("button.operator"));
-
-numbers.forEach((button) => {
+numberButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     let value = event.target.value;
     if (operator && recentOperation) {
@@ -102,6 +106,12 @@ numbers.forEach((button) => {
     }
     currentValue = currentValue === "0" ? value : currentValue + value;
     results.textContent = currentValue;
+
+    if (currentValue.length === CURRENT_VALUE_LIMIT) {
+      numberButtons.forEach((button) =>
+        button.setAttribute("disabled", "true")
+      );
+    }
   });
 });
 
@@ -111,9 +121,12 @@ deleteButton.addEventListener("click", (_) => {
     if (currentValue === "-") currentValue = "";
     results.textContent = currentValue;
   }
+  if (currentValue.length < CURRENT_VALUE_LIMIT) {
+    numberButtons.forEach((button) => button.removeAttribute("disabled"));
+  }
 });
 
-allClear.addEventListener("click", (_) => resetState());
+allClearButton.addEventListener("click", (_) => resetState());
 
 plusMinusButton.addEventListener("click", (_) => {
   if (currentValue && currentValue !== "0") {
@@ -123,7 +136,7 @@ plusMinusButton.addEventListener("click", (_) => {
   }
 });
 
-operators.forEach((op) => {
+operatorButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
     if (!prevValue) {
       prevValue = currentValue;
@@ -153,4 +166,4 @@ operators.forEach((op) => {
   });
 });
 
-// TODO: display logic for overflowing numbers
+// TODO: add keyboard support
