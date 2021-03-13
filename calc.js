@@ -1,7 +1,7 @@
-let prevValue = "";
-let currentValue = "";
-let operator = "";
 const display = document.querySelector(".display");
+let prevValue = "";
+let currentValue = display.innerText;
+let operator = "";
 
 const add = (a, b) => {
   return a + b;
@@ -61,6 +61,14 @@ allClear.addEventListener("click", (_) => {
   prevValue = "";
   currentValue = "";
   display.innerText = "0";
+});
+
+plusMinusButton.addEventListener("click", (_) => {
+  if (currentValue !== "0") {
+    currentValue =
+      currentValue[0] === "-" ? currentValue.substring(1) : "-" + currentValue;
+    display.textContent = currentValue;
+  }
 });
 
 operators.forEach((op) => {
