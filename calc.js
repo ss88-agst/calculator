@@ -57,23 +57,16 @@ const power = (a, b) => Math.pow(a, b);
  * @returns the result of the operation
  */
 const operate = (a, b, operator) => {
-  let output;
   switch (operator) {
-    case operator === "+":
-      output = add(a, b);
-      break;
-    case operator === "-":
-      output = subtract(a, b);
-      break;
-    case operator === "*":
-      output = multiply(a, b);
-      break;
-    case operator === "/":
-      output = divide(a, b);
-      break;
+    case "+":
+      return add(a, b);
+    case "-":
+      return subtract(a, b);
+    case "*":
+      return multiply(a, b);
+    case "/":
+      return divide(a, b);
   }
-
-  return output;
 };
 
 const numbers = Array.from(document.querySelectorAll("button.number"));
