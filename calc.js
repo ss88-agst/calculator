@@ -56,7 +56,7 @@ const power = (a, b) => Math.pow(a, b);
  *
  * @param {number} a the first operand
  * @param {number} b the second operand
- * @param {string} operator the operator to be used in the operation
+ * @param {number} operator the operator to be used in the operation
  * @returns the result of the operation
  */
 const operate = (a, b, operator) => {
