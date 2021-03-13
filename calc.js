@@ -1,9 +1,10 @@
-const display = document.querySelector(".display");
+const results = document.querySelector(".results");
 const preview = document.querySelector(".preview");
 let prevValue = "";
 let currentValue = "";
 let operator = "";
-let result = "";
+let result = 0;
+let recentOperation = false;
 
 /**
  * Adds two numbers together
