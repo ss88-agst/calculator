@@ -42,7 +42,10 @@ const operate = (a, b, operator) => {
 };
 
 const numbers = Array.from(document.querySelectorAll("button.number"));
+const deleteButton = document.querySelector("button#delete");
 const allClear = document.querySelector("button#all-clear");
+const plusMinusButton = document.querySelector("button#plus-minus");
+const operators = Array.from(document.querySelectorAll("button.operator"));
 numbers.forEach((button) => {
   button.addEventListener("click", (event) => {
     let value = event.target.value;
@@ -58,4 +61,8 @@ allClear.addEventListener("click", (_) => {
   prevValue = "";
   currentValue = "";
   display.innerText = "0";
+});
+
+operators.forEach((op) => {
+  op.addEventListener("click", (event) => {});
 });
