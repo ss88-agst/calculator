@@ -78,12 +78,13 @@ const operate = (a, b, operator) => {
  * Resets every underlying global variable back to their original values
  */
 const resetState = () => {
-  display.innerText = "";
+  results.innerText = "";
   preview.innerText = "";
   prevValue = "";
   currentValue = "";
   operator = "";
-  result = "";
+  result = 0;
+  recentOperation = false;
 };
 
 const numbers = Array.from(document.querySelectorAll("button.number"));
