@@ -27,6 +27,9 @@ body {
 
 .display {
   padding-top: 10px;
+  padding-right: 10px;
+  background-color: dimgrey;
+  border-radius: 25px;
 }
 
 .preview {
@@ -46,6 +49,7 @@ body {
 }
 
 .input {
+  padding-top: 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
