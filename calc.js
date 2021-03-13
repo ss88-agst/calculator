@@ -101,5 +101,7 @@ plusMinusButton.addEventListener("click", (_) => {
 });
 
 operators.forEach((op) => {
-  op.addEventListener("click", (event) => {});
+  op.addEventListener("click", (event) => {
+    if (operator === "") operator = event.target.value;
+  });
 });
