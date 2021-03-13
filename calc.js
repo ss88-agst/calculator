@@ -1,7 +1,9 @@
 const display = document.querySelector(".display");
+const preview = document.querySelector(".preview");
 let prevValue = "";
-let currentValue = display.innerText;
+let currentValue = "";
 let operator = "";
+let result = "";
 
 /**
  * Adds two numbers together
@@ -71,6 +73,18 @@ const operate = (a, b, operator) => {
   }
 };
 
+/**
+ * Resets every underlying global variable back to their original values
+ */
+const resetState = () => {
+  display.innerText = "";
+  preview.innerText = "";
+  prevValue = "";
+  currentValue = "";
+  operator = "";
+  result = "";
+};
+
 const numbers = Array.from(document.querySelectorAll("button.number"));
 const deleteButton = document.querySelector("button#delete");
 const allClear = document.querySelector("button#all-clear");
@@ -80,19 +94,21 @@ const operators = Array.from(document.querySelectorAll("button.operator"));
 numbers.forEach((button) => {
   button.addEventListener("click", (event) => {
     let value = event.target.value;
-    prevValue = currentValue;
-
-    if (prevValue === "0") prevValue = "";
-    currentValue = prevValue + value;
+    currentValue =
+      currentValue === "0" || operator !== "" ? value : currentValue + value;
     display.textContent = currentValue;
   });
 });
 
-allClear.addEventListener("click", (_) => {
-  prevValue = "";
-  currentValue = "";
-  display.innerText = "0";
+deleteButton.addEventListener("click", (_) => {
+  if (currentValue !== "") {
+    currentValue = currentValue.slice(0, -1);
+    if (currentValue === "-") currentValue = "";
+    display.textContent = currentValue;
+  }
 });
+
+allClear.addEventListener("click", (_) => resetState());
 
 plusMinusButton.addEventListener("click", (_) => {
   if (currentValue !== "0") {
@@ -104,14 +120,27 @@ plusMinusButton.addEventListener("click", (_) => {
 
 operators.forEach((op) => {
   op.addEventListener("click", (event) => {
-    if (operator !== "") {
-      let firstOperand = parseFloat(prevValue);
-      let secondOperand = parseFloat(currentValue);
-
+    if (prevValue === "" || currentValue === "") {
       prevValue = currentValue;
-      currentValue = operate(firstOperand, secondOperand, operator);
+    }
+
+    let firstOperand = prevValue === "" ? 0 : parseFloat(prevValue);
+    let secondOperand = currentValue === "" ? 0 : parseFloat(currentValue);
+
+    if (operator === "") {
+      operator = event.target.value === "=" ? "" : event.target.value;
+      prevValue = secondOperand.toString();
+      preview.textContent =
+        operator === "" ? "" : `${firstOperand} ${operator}`;
+    } else {
+      preview.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
+      if (result === "") {
+        result = operate(firstOperand, secondOperand, operator);
+        display.textContent = result;
+      }
+
+      prevValue = currentValue = result;
       operator = event.target.value;
-      display.innerText = currentValue;
     }
   });
 });
