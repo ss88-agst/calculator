@@ -3,42 +3,34 @@ let prevValue = "";
 let currentValue = display.innerText;
 let operator = "";
 
-const add = (a, b) => {
-  return a + b;
-};
+const add = (a, b) => a + b;
 
-const subtract = (a, b) => {
-  return a - b;
-};
+const subtract = (a, b) => a - b;
 
-const multiply = (a, b) => {
-  return a * b;
-};
+const multiply = (a, b) => a * b;
 
-const divide = (a, b) => {
-  return a / b;
-};
+const divide = (a, b) => a / b;
 
-// Might add this to the calculator in order to add another functionality
-const power = (a, b) => {
-  return Math.pow(a, b);
-};
+const power = (a, b) => Math.pow(a, b);
 
 const operate = (a, b, operator) => {
+  let output;
   switch (operator) {
-    case operator == "+":
-      add(a, b);
+    case operator === "+":
+      output = add(a, b);
       break;
-    case operator == "-":
-      subtract(a, b);
+    case operator === "-":
+      output = subtract(a, b);
       break;
-    case operator == "*":
-      multiply(a, b);
+    case operator === "*":
+      output = multiply(a, b);
       break;
-    case operator == "/":
-      divide(a, b);
+    case operator === "/":
+      output = divide(a, b);
       break;
   }
+
+  return output;
 };
 
 const numbers = Array.from(document.querySelectorAll("button.number"));
@@ -46,6 +38,7 @@ const deleteButton = document.querySelector("button#delete");
 const allClear = document.querySelector("button#all-clear");
 const plusMinusButton = document.querySelector("button#plus-minus");
 const operators = Array.from(document.querySelectorAll("button.operator"));
+
 numbers.forEach((button) => {
   button.addEventListener("click", (event) => {
     let value = event.target.value;
