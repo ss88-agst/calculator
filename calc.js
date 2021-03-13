@@ -1,5 +1,6 @@
 let prevValue = "";
 let currentValue = "";
+let operator = "";
 const display = document.querySelector(".display");
 
 const add = (a, b) => {
