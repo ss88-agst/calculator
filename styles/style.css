@@ -20,7 +20,7 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  border-radius: 30px;
+  border-radius: 37.5px;
   padding: 15px;
   background-color: #525252;
 }
@@ -149,6 +149,7 @@ button:focus {
 }
 
 #plus-minus {
+  background-color: #000;
   grid-column-start: 1;
   grid-row-start: 5;
 }
